@@ -28,12 +28,13 @@ public class NumberComplex implements IComplex {
 
     @Override
     public IComplex negate() {
-        return null;
+        return new NumberComplex(-this.realPart,-this.imaginaryPart);
     }
+
 
     @Override
     public IComplex conjugate() {
-        return null;
+        return new NumberComplex(this.realPart,-this.imaginaryPart);
     }
 
     @Override
@@ -59,7 +60,12 @@ public class NumberComplex implements IComplex {
     }
     @Override
     public IComplex divide(IComplex other) {
-        return null;
+        double quotient = (other.getRealPart()*other.getRealPart())+(other.getImaginaryPart()*other.getImaginaryPart());
+        double reel = (this.realPart*other.getRealPart())+(this.imaginaryPart*other.getImaginaryPart());
+        double imaginaire = (this.imaginaryPart*other.getRealPart())-(this.realPart*other.getImaginaryPart()) ;
+        double re = reel/quotient;
+        double im = imaginaire/quotient;
+        return new NumberComplex(re,im);
     }
 
     public int hashCode() {
