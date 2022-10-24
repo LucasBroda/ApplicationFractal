@@ -40,8 +40,7 @@ class IComplexTest {
      * @return Le nombre complexe créé.
      */
     private static IComplex createComplex(double realPart, double imaginaryPart) {
-        // TODO Créez ici une instance de votre classe implémentant IComplex.
-        return null;
+        return new NumberComplex (realPart,imaginaryPart);
     }
 
     /**
@@ -106,6 +105,7 @@ class IComplexTest {
      */
     @Test
     void testNegate() {
+
         IComplex zero = createComplex(0, 0).negate();
         assertEquals(0, zero.getRealPart(), 0.001);
         assertEquals(0, zero.getImaginaryPart(), 0.001);

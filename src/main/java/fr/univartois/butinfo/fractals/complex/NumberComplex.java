@@ -2,11 +2,11 @@ package fr.univartois.butinfo.fractals.complex;
 
 public class NumberComplex implements IComplex {
 
-    private int realPart;
-    private int imaginaryPart;
+    private final double realPart;
+    private final double imaginaryPart;
 
 
-    public NumberComplex(int realPart, int imaginaryPart) {
+    public NumberComplex(double realPart, double imaginaryPart) {
         this.realPart = realPart;
         this.imaginaryPart = imaginaryPart;
     }
@@ -23,7 +23,7 @@ public class NumberComplex implements IComplex {
 
     @Override
     public double abs() {
-        return 0;
+        return Math.sqrt((realPart * realPart) + (imaginaryPart * imaginaryPart));
     }
 
     @Override
@@ -61,9 +61,11 @@ public class NumberComplex implements IComplex {
         return null;
     }
 
-    @Override
     public int hashCode() {
-        return super.hashCode();
+        int hash = 1;
+        hash = hash * 17 + (int) realPart;
+        hash = hash * 31 + (int) imaginaryPart;
+        return hash;
     }
 
     @Override
