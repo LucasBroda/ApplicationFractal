@@ -38,24 +38,25 @@ public class NumberComplex implements IComplex {
 
     @Override
     public IComplex add(IComplex other) {
-        return null;
+        return new NumberComplex(this.realPart+ other.getRealPart(),this.imaginaryPart+other.getImaginaryPart());
     }
 
     @Override
     public IComplex subtract(IComplex other) {
-        return null;
+        return new NumberComplex(this.realPart-other.getRealPart(),this.imaginaryPart-other.getImaginaryPart());
     }
 
     @Override
     public IComplex multiply(double value) {
-        return null;
+        return new NumberComplex(this.realPart*value,this.imaginaryPart*value);
     }
 
     @Override
     public IComplex multiply(IComplex other) {
-        return null;
+        double reel = (this.realPart*other.getRealPart())-(this.imaginaryPart*other.getImaginaryPart());
+        double imaginaire = (this.imaginaryPart*other.getImaginaryPart())-(this.realPart*other.getRealPart());
+        return new NumberComplex(reel,imaginaire);
     }
-
     @Override
     public IComplex divide(IComplex other) {
         return null;
@@ -63,18 +64,29 @@ public class NumberComplex implements IComplex {
 
     public int hashCode() {
         int hash = 1;
-        hash = hash * 17 + (int) realPart;
-        hash = hash * 31 + (int) imaginaryPart;
+        hash = hash * 15 + (int) realPart;
+        hash = hash * 16 + (int) imaginaryPart;
         return hash;
     }
 
     @Override
     public boolean equals(Object obj) {
-        return super.equals(obj);
+        if(this == obj){
+            return true;
+        }
+        if(obj == null){
+            return false;
+        }
+        if(getClass() != obj.getClass()){
+            return false;
+        }
+        NumberComplex other = (NumberComplex) obj;
+        IComplex diff = this.subtract(other);
+        return diff.abs()<=0.0001;
     }
 
     @Override
     public String toString() {
-        return super.toString();
+        return this.realPart +" "+"+"+" "+ this.imaginaryPart+"i";
     }
 }

@@ -16,10 +16,10 @@
 
 package fr.univartois.butinfo.fractals.complex;
 
+import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
-
-import org.junit.jupiter.api.Test;
 
 /**
  * La classe IComplexTest permet de tester votre implémentation de l'interface
@@ -30,6 +30,7 @@ import org.junit.jupiter.api.Test;
  * @version 0.1.0
  */
 class IComplexTest {
+
 
     /**
      * Crée un nouveau nombre complexe.
