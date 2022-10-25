@@ -4,7 +4,7 @@ import java.awt.*;
 
 import static java.awt.Color.black;
 
-public class Line {
+public class Line implements IFigure {
 
     private final Point points1;
 

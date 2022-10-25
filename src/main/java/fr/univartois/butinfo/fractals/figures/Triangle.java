@@ -4,11 +4,11 @@ import fr.univartois.butinfo.fractals.complex.IPoint;
 
 import java.awt.*;
 
-public class Triangle {
+public class Triangle implements IFigure {
 
     private final Color color;
 
-    public IPoint[] points;
+    private final IPoint[] points;
 
     public Triangle(IPoint[] points, Color color) {
         this.points = new IPoint[3];
