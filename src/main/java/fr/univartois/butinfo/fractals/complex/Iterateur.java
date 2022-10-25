@@ -33,9 +33,7 @@ public class Iterateur implements Iterator<IComplex>{
             return suiteComplexe.getNext(precedent);
         }
         return null;
-    }
-    public int getIteration() {
-    	return nb_iterations;
+
     }
 }
 
