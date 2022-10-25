@@ -8,9 +8,7 @@ public class Circle {
 
     private final double r;
 
-    private final double cx;
-
-    private final double cy;
+    private Point points;
 
     private final Color stroke;
 
@@ -18,16 +16,15 @@ public class Circle {
 
     private final int strokeWidth;
 
-    public Circle(double r, double cx, double cy, Color stroke, String fill, int strokeWidth) {
+    public Circle(double r, Point points, Color stroke, String fill, int strokeWidth) {
         this.r = r;
-        this.cx = cx;
-        this.cy = cy;
+        this.points = points;
         this.stroke = stroke;
         this.fill = fill;
         this.strokeWidth = strokeWidth;
     }
 
     public String getSVG(){
-        return "circle :"+" "+cx+"="+25+" "+cy+"="+75+" "+r+"="+20+" "+stroke+"="+red+" "+ fill+"="+"transparent"+" "+strokeWidth+"="+5+"/>";
+        return "circle :"+" "+"cx="+points.getX()+" "+"cy="+points.getY()+" "+"r="+r+" "+"stroke="+stroke+" "+ "fill="+fill+" "+"strokeWidth="+strokeWidth+"/>";
     }
 }

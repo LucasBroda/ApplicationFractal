@@ -4,6 +4,10 @@ public class AdaptateurComplex implements IPoint{
 
     NumberComplex complex;
 
+    public AdaptateurComplex(NumberComplex complex) {
+        this.complex = complex;
+    }
+
     @Override
     public double getX() {
         return complex.getRealPart();
