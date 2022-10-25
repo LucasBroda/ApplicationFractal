@@ -4,11 +4,11 @@ import java.awt.*;
 
 import static java.awt.Color.red;
 
-public class Circle {
+public class Circle implements IFigure {
 
     private final double r;
 
-    private Point points;
+    private final Point points;
 
     private final Color stroke;
 
@@ -27,4 +27,5 @@ public class Circle {
     public String getSVG(){
         return "circle :"+" "+"cx="+points.getX()+" "+"cy="+points.getY()+" "+"r="+r+" "+"stroke="+stroke+" "+ "fill="+fill+" "+"strokeWidth="+strokeWidth+"/>";
     }
+
 }

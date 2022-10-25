@@ -4,7 +4,7 @@ import java.awt.*;
 
 import static java.awt.Color.black;
 
-public class Rectangle {
+public class Rectangle implements IFigure {
 
     private final Point points;
 
