@@ -1,4 +1,6 @@
-package fr.univartois.butinfo.fractals.complex;
+package fr.univartois.butinfo.fractals.suite;
+
+import fr.univartois.butinfo.fractals.complex.IComplex;
 
 import java.util.function.BinaryOperator;
 

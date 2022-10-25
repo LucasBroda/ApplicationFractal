@@ -3,11 +3,11 @@ package fr.univartois.butinfo.fractals.image;
 import java.awt.Color;
 import java.io.IOException;
 
-import fr.univartois.butinfo.fractals.complex.Iterateur;
+import fr.univartois.butinfo.fractals.suite.Iterateur;
 import fr.univartois.butinfo.fractals.complex.NumberComplex;
 import fr.univartois.butinfo.fractals.complex.PaletteGrey;
-import fr.univartois.butinfo.fractals.complex.SuiteJulia;
-import fr.univartois.butinfo.fractals.complex.SuiteMandelbrot;
+import fr.univartois.butinfo.fractals.suite.SuiteJulia;
+import fr.univartois.butinfo.fractals.suite.SuiteMandelbrot;
 
 public class GenerationDesImages implements IBuilderImage {
 	private int width;
