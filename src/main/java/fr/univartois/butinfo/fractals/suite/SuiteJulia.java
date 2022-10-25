@@ -1,6 +1,8 @@
-package fr.univartois.butinfo.fractals.complex;
+package fr.univartois.butinfo.fractals.suite;
 
-public class SuiteJulia extends SuiteComplexe1 implements ISuiteComplexe{
+import fr.univartois.butinfo.fractals.complex.NumberComplex;
+
+public class SuiteJulia extends SuiteComplexe1 implements ISuiteComplexe {
 
     NumberComplex c = new NumberComplex(-0.4,0.6);
 
