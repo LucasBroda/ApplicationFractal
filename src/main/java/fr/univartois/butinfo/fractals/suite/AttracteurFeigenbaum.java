@@ -1,5 +1,7 @@
-package fr.univartois.butinfo.fractals.complex;
+package fr.univartois.butinfo.fractals.suite;
 
+import fr.univartois.butinfo.fractals.complex.AdaptateurComplex;
+import fr.univartois.butinfo.fractals.complex.IPoint;
 import fr.univartois.butinfo.fractals.suite.ISuiteChaotique;
 import fr.univartois.butinfo.fractals.suite.SuiteChaotique;
 
