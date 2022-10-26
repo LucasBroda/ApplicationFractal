@@ -1,5 +1,6 @@
 package fr.univartois.butinfo.fractals.suite;
 
+import fr.univartois.butinfo.fractals.complex.AdaptateurComplex;
 import fr.univartois.butinfo.fractals.complex.IComplex;
 import fr.univartois.butinfo.fractals.complex.NumberComplex;
 
@@ -20,6 +21,8 @@ public class Iterateur implements Iterator<IComplex>{
         this.nb_max_iterations = nb_max_iterations;
         this.precedent = precedent;
     }
+
+
 
     @Override
     public boolean hasNext() {
