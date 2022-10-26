@@ -1,36 +1,22 @@
 package fr.univartois.butinfo.fractals.suite;
 
-import fr.univartois.butinfo.fractals.complex.AdaptateurComplex;
 import fr.univartois.butinfo.fractals.complex.IPoint;
 
-public class SuiteChaotique implements ISuiteChaotique{
+import java.util.Iterator;
 
-    private int nb_iterations;
-    private int nb_max_iterations;
+public abstract class SuiteChaotique implements ISuiteChaotique, Iterable<Double> {
 
-    private final AdaptateurComplex precedent;
+    private final IPoint premier;
 
-    ISuiteChaotique suiteChaotique;
+    private final int nb_max_iterations;
 
-    public SuiteChaotique(int nb_iterations,int nb_max_iterations,AdaptateurComplex precedent, ISuiteChaotique suiteChaotique){
-        this.nb_iterations = nb_iterations;
+    public SuiteChaotique(IPoint premier, int nb_max_iterations){
+        this.premier = premier;
         this.nb_max_iterations = nb_max_iterations;
-        this.precedent = precedent;
-        this.suiteChaotique = suiteChaotique;
-    }
-
-    public boolean hasNext(){
-        if(nb_iterations == nb_max_iterations){
-            return false;
-        }
-        return true;
     }
     @Override
-    public AdaptateurComplex getNext(IPoint point) {
-        if(hasNext()){
-            nb_iterations ++;
-            return suiteChaotique.getNext(precedent);
-        }
-        return null;
+    public Iterator<Double> iterator() {
+        return new IterateurChaotique(nb_max_iterations,premier,this);
     }
+
 }
