@@ -2,11 +2,10 @@ package fr.univartois.butinfo.fractals.complex;
 import java.awt.Color;
 
 public class PaletteRouge implements ICouleur{
-	public final int MAX_ITERATION = 100;
 
 	@Override
-	public Color getCouleurStrategie(int nbrIteration) {
-		return new Color(nbrIteration/MAX_ITERATION, 0, 0);
+	public Color getCouleurStrategie(float nbrIteration, float maxIteration) {
+		return new Color(nbrIteration/maxIteration, (float)0, (float)0);
 	}
 	
 	@Override

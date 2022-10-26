@@ -55,7 +55,7 @@ public class NumberComplex implements IComplex {
     @Override
     public IComplex multiply(IComplex other) {
         double reel = (this.realPart*other.getRealPart())-(this.imaginaryPart*other.getImaginaryPart());
-        double imaginaire = (this.imaginaryPart*other.getImaginaryPart())-(this.realPart*other.getRealPart());
+        double imaginaire = (this.imaginaryPart*other.getRealPart())+(this.realPart*other.getImaginaryPart());
         return new NumberComplex(reel,imaginaire);
     }
     @Override

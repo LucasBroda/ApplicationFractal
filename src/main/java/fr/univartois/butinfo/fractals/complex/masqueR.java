@@ -9,11 +9,11 @@ public class masqueR extends PaletteDecorateur{
 		super(palette);
 	}
 
-	public Color getCouleurStrategie(int nbrIteration) {
-		return new Color(nbrIteration/MAX_ITERATION, nbrIteration/MAX_ITERATION, nbrIteration/MAX_ITERATION);	
+	public Color getCouleurStrategie(float nbrIteration,float maxIteration) {
+		return new Color((float)(nbrIteration/maxIteration),(float)(nbrIteration/maxIteration),(float)(nbrIteration/maxIteration));	
 	}
 	
 	public Color masque(Color couleur) {
-		return new Color(0, couleur.getGreen(), couleur.getBlue());
+		return new Color((float)0,(float) couleur.getGreen(),(float) couleur.getBlue());
 	}
 }
