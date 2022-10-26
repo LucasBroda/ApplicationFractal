@@ -2,6 +2,6 @@ package fr.univartois.butinfo.fractals.complex;
 import java.awt.Color;
 
 public interface ICouleur {
-	Color getCouleurStrategie(int nbrIteration);
+	Color getCouleurStrategie(float nbrIteration,float maxIteration);
 	Color masque(Color couleur);
 }

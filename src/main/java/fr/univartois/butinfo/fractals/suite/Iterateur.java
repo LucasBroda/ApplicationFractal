@@ -8,38 +8,42 @@ import java.util.Iterator;
 
 public class Iterateur implements Iterator<IComplex>{
 
-    private static int nb_iterations = 0;
+    private int nb_iterations = 0;
 
     private final int nb_max_iterations;
 
-    private final NumberComplex precedent;
+    private IComplex precedent;
 
     ISuiteComplexe suiteComplexe;
 
-    public Iterateur(ISuiteComplexe suiteComplexe, int nb_max_iterations, NumberComplex precedent){
+    public Iterateur(ISuiteComplexe suiteComplexe, int nb_max_iterations){
         this.suiteComplexe = suiteComplexe;
         this.nb_max_iterations = nb_max_iterations;
-        this.precedent = precedent;
     }
 
 
 
     @Override
     public boolean hasNext() {
-        if(nb_iterations == nb_max_iterations || suiteComplexe.getNext(precedent).abs()>2){
+    	if(nb_iterations == 0) {
+    		return true;
+    	}
+    	else if((nb_iterations == nb_max_iterations)||(precedent.abs()>2)) {
             return false;
         }
         return true;
     }
-
     @Override
     public IComplex next() {
         if(hasNext()){
             nb_iterations++;
-            return suiteComplexe.getNext(precedent);
+            this.precedent = suiteComplexe.getNext(precedent);
+            return precedent;
         }
         return null;
-
     }
+	public int getNbrIteration() {
+		return this.nb_iterations;
+	}
 }
 
