@@ -1,14 +1,21 @@
 package fr.univartois.butinfo.fractals.image;
 
-import fr.univartois.butinfo.fractals.complex.NumberComplex;
-
 /**
  * Builder interface defines all possible ways to configure a product.
  */
 public interface IBuilderImage {
     void setWidth(int width);
     void setHeight(int height);
-    void setCentre(NumberComplex nbrComplex);
-    void setZoom(NumberComplex zoom);
-    void setSuiteComplex(String suite);
+    void setCentreX(double centreX);
+    void setCentreY(double centreY);
+    void setZoom(double zoom);
+    void setSuiteComplexName(String suite);
+    void setOutput(String outputFile);
+    void setNbiteration(int nbIteration);
+    void setPaletteName(String paleteColor);
 }
+
+
+
+
+

@@ -32,7 +32,7 @@ public class CreateImage implements IFractalImage{
 
 	@Override
 	public void setColor(int row, int column, Color color) {
-		image.setRGB(row, column,image.getRGB(row, column));
+		image.setRGB(row, column,color.getRGB());
 	}
 
 	@Override
