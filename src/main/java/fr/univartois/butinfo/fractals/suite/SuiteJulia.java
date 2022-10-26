@@ -1,19 +1,28 @@
 package fr.univartois.butinfo.fractals.suite;
 
+import java.util.Iterator;
+
+import fr.univartois.butinfo.fractals.complex.IComplex;
 import fr.univartois.butinfo.fractals.complex.NumberComplex;
 
-public class SuiteJulia extends SuiteComplexe1 implements ISuiteComplexe {
+public class SuiteJulia implements ISuiteComplexe {
 
-    NumberComplex c = new NumberComplex(-0.4,0.6);
+    private NumberComplex c = new NumberComplex(-0.4,0.6);
+    private NumberComplex z;
+    private int nbrMaxIteration;
 
-    public SuiteJulia(NumberComplex premier, int nbMaxIterations) {
-        super(premier, nbMaxIterations);
+    public SuiteJulia(NumberComplex z,int nbrMaxIteration ){
+        this.z = z;
+        this.nbrMaxIteration = nbrMaxIteration;
     }
-
-
     @Override
-    public NumberComplex getNext(NumberComplex prec) {
-        return (NumberComplex) prec.multiply(prec).add(c);
+    public IComplex getNext(IComplex prec) {
+    	if(prec == null) {
+    		return (z.multiply(z)).add(c);
+    	}
+        return  (prec.multiply(prec)).add(c);
     }
-
+    public Iterator<IComplex> iterator(){
+        return new Iterateur(this,nbrMaxIteration);
+    }
 }
