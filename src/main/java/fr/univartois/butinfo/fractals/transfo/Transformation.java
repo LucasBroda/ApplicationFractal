@@ -6,7 +6,7 @@ public abstract class Transformation {
 
     protected IFigure figure;
 
-    public Transformation(IFigure figure) {
+    protected Transformation(IFigure figure) {
         this.figure = figure;
     }
 

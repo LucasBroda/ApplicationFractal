@@ -23,6 +23,6 @@ public class Triangle implements IFigure {
         for (IPoint point: points) {
             pointsSb.append(point.getX()).append(" ").append(point.getY()).append(", ");
         }
-        return "<polygon points=\"" + pointsSb.substring(0, pointsSb.length() - 2) + "\" fill=\"" + color + "\"/>";
+        return "<polygon points="+" "+ pointsSb.substring(0, pointsSb.length() - 2) + " "+ "color=" + color + "/>";
     }
 }
