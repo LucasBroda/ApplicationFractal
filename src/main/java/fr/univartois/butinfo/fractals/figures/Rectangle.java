@@ -4,24 +4,29 @@ import java.awt.*;
 
 import static java.awt.Color.black;
 
-public class Rectangle implements IFigure {
+public class Rectangle extends BaseForme implements IFigure {
 
-    private final Point points;
+    private final int height;
 
-    private final double height;
+    private final int width;
 
-    private final double width;
-
-    private final Color color;
-
-    public Rectangle(Point points,double height, double width, Color color) {
-        this.points = points;
+    public Rectangle(int x, int y,int height, int width, Color color) {
+        super(x,y,color);
         this.height = height;
         this.width = width;
-        this.color = color;
+    }
+
+    @Override
+    public int getWidth() {
+        return width;
+    }
+
+    @Override
+    public int getHeight() {
+        return height;
     }
 
     public String getSVG(){
-        return "<rectangle :"+" "+ "x="+points.getX()+" "+"y="+points.getY()+" "+ "width="+width+" "+ "height="+height+" "+"color="+color+">/";
+        return "<rectangle :"+" "+ "x="+x+" "+"y="+y+" "+ "width="+getWidth()+" "+ "height="+getHeight()+" "+"color="+color+">/";
     }
 }
