@@ -14,6 +14,8 @@ public class Plan implements IPlan{
 		 double re = (column + .5) - (width / 2.);
 		 double im = (height / 2.) - (row + .5);
 		 return new NumberComplex(re, im);
-		 }
+	}
+
+
 
 }

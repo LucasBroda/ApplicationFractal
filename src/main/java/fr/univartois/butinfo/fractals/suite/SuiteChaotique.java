@@ -6,9 +6,9 @@ import java.util.Iterator;
 
 public abstract class SuiteChaotique implements ISuiteChaotique, Iterable<Double> {
 
-    private final IPoint premier;
+    protected final IPoint premier;
 
-    private final int nb_max_iterations;
+    protected final int nb_max_iterations;
 
     public SuiteChaotique(IPoint premier, int nb_max_iterations){
         this.premier = premier;
