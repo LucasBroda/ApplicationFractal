@@ -6,15 +6,19 @@ import java.util.Iterator;
 
 public class SuiteCirculaire extends SuiteChaotique implements ISuiteChaotique{
 
+    private IPoint depart;
     public static double PI = 3.14;
 
-    public SuiteCirculaire(IPoint premier, int nb_max_iterations) {
+    public SuiteCirculaire(int nb_max_iterations) {
         super(nb_max_iterations);
     }
 
     @Override
-    public double getNext(IPoint point) {
-        return point.getY()+(point.getX()*Math.sin(2*PI*point.getY())/2*PI)+1/3;
+    public double getNext(IPoint precedent) {
+        if(precedent == null){
+            return depart.getY()+(depart.getX()*Math.sin(2*PI*depart.getY())/2*PI)+1/3;
+        }
+        return precedent.getY()+(precedent.getX()*Math.sin(2*PI*precedent.getY())/2*PI)+1/3;
     }
 
     @Override
