@@ -9,7 +9,7 @@ public class SuiteCirculaire extends SuiteChaotique implements ISuiteChaotique{
     public static double PI = 3.14;
 
     public SuiteCirculaire(IPoint premier, int nb_max_iterations) {
-        super(premier, nb_max_iterations);
+        super(nb_max_iterations);
     }
 
     @Override
@@ -19,6 +19,6 @@ public class SuiteCirculaire extends SuiteChaotique implements ISuiteChaotique{
 
     @Override
     public Iterator<Double> iterator() {
-        return new IterateurChaotique(nb_max_iterations,premier,this);
+        return new IterateurChaotique(nb_max_iterations,this);
     }
 }

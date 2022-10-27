@@ -8,12 +8,11 @@ public class IterateurChaotique implements Iterator<Double> {
     private int nb_iterations = 0;
     private int nb_max_iterations;
 
-    private final IPoint precedent;
+    private IPoint precedent;
     ISuiteChaotique suiteChaotique;
 
-    public IterateurChaotique(int nb_max_iterations,IPoint precedent, ISuiteChaotique suiteChaotique){
+    public IterateurChaotique(int nb_max_iterations, ISuiteChaotique suiteChaotique){
         this.nb_max_iterations = nb_max_iterations;
-        this.precedent = precedent;
         this.suiteChaotique = suiteChaotique;
     }
 
