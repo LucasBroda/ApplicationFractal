@@ -9,8 +9,8 @@ import java.util.Iterator;
 
 public class AttracteurFeigenbaum extends SuiteChaotique implements ISuiteChaotique {
 
-    public AttracteurFeigenbaum(AdaptateurComplex premier, int nb_max_iterations) {
-        super(premier, nb_max_iterations);
+    public AttracteurFeigenbaum(int nb_max_iterations) {
+        super(nb_max_iterations);
     }
 
     @Override
@@ -20,6 +20,6 @@ public class AttracteurFeigenbaum extends SuiteChaotique implements ISuiteChaoti
 
     @Override
     public Iterator<Double> iterator() {
-        return new IterateurChaotique(nb_max_iterations,premier,this);
+        return new IterateurChaotique(nb_max_iterations,this);
     }
 }
