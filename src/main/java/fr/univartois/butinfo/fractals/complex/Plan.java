@@ -1,8 +1,13 @@
 package fr.univartois.butinfo.fractals.complex;
 
+import java.awt.*;
+import java.awt.image.BufferedImage;
+
 public class Plan implements IPlan{
 	private int width;
 	private int height;
+
+	private IPlan plan = new Plan(this.width,this.height);
 	
 	public Plan(int width, int height) {
 		super();
@@ -16,6 +21,25 @@ public class Plan implements IPlan{
 		 return new NumberComplex(re, im);
 	}
 
+	public IComplex determineComplex(NumberComplex nbr) {
+		if(nbr.getRealPart() > this.height || nbr.getImaginaryPart() > this.width){
+			System.out.println("Le nombre complexe est en dehors de l'image");
+			return null;
+		}
+		else {
+			return new NumberComplex(nbr.getRealPart(), nbr.getImaginaryPart());
+		}
 
+	}
+
+	public IPoint determinePoint(IPoint point){
+		if(point.getX() > this.height || point.getY() > this.width){
+			System.out.println("Le point est en dehors de l'image");
+			return null;
+		}
+		else {
+			return (IPoint) new NumberComplex(point.getX(), point.getY());
+		}
+	}
 
 }
