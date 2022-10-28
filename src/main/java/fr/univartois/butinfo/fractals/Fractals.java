@@ -16,6 +16,7 @@
 
 package fr.univartois.butinfo.fractals;
 
+import java.io.IOException;
 import java.io.PrintWriter;
 
 import fr.cril.cli.ClassParser;
@@ -26,6 +27,8 @@ import fr.cril.cli.annotations.Args;
 import fr.cril.cli.annotations.Description;
 import fr.cril.cli.annotations.LongName;
 import fr.cril.cli.annotations.ShortName;
+import fr.univartois.butinfo.fractals.complex.NumberComplex;
+import fr.univartois.butinfo.fractals.image.GenerationDesImages;
 
 /**
  * La classe Fractals permet de générer des fractales depuis la ligne de commande.
@@ -87,7 +90,7 @@ public final class Fractals {
     @LongName("focus-y")
     @Description("Spécifie le point central de l'image sur l'axe des ordonnées.")
     @Args(value = 1, names = "real")
-    private double foxusY;
+    private double focusY;
 
     /**
      * L'option spécifiant le nom de la fractale à générer.
@@ -172,19 +175,32 @@ public final class Fractals {
 
     /**
      * Crée la fractale demandée dans la ligne de commande.
+     * @throws IOException
      */
-    public void buildFractal() {
-        // TODO Ajoutez ici le code pour utiliser votre implantation et créer la fractale.
+    public void buildFractal() throws IOException {
+        GenerationDesImages builder = new GenerationDesImages();
+        builder.setHeight(500);
+        builder.setWidth(500);
+        builder.setSuiteComplexName("Mandelbrot");
+        builder.setCentreX(0);
+        builder.setCentreY(0);
+        builder.setZoom(0.005);
+        builder.setOutput("Mandelbrot.png");
+        builder.setNbiteration(200);
+        builder.setPaletteName("grey");
+        builder.getResult();
     }
 
     /**
      * Exécute l'application depuis la ligne de commande.
      *
      * @param args Les arguments de la ligne de commande.
+     * @throws IOException
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Fractals fractals = new Fractals();
         fractals.parseCliArguments(args);
         fractals.buildFractal();
     }
+
 }
