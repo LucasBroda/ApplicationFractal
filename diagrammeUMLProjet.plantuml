@@ -1,0 +1,330 @@
+@startuml
+
+!theme plain
+top to bottom direction
+skinparam linetype ortho
+
+class AdaptateurComplex {
+  + AdaptateurComplex(NumberComplex): 
+  + AdaptateurComplex(double, double): 
+  + convertion(): NumberComplex
+  + distance(IPoint): double
+   x: double
+   y: double
+}
+class AttracteurFeigenbaum {
+  + AttracteurFeigenbaum(int): 
+  + getNext(IPoint): double
+  + iterator(): Iterator<Double>
+}
+class BaseForme {
+  # BaseForme(int, int, Color): 
+  ~ y: int
+  ~ x: int
+  + move(int, int): void
+  + isInsideBounds(int, int): boolean
+   y: int
+   height: int
+   x: int
+   width: int
+}
+class Circle {
+  + Circle(int, int, int, Color): 
+   SVG: String
+   height: int
+   width: int
+}
+class ComplexDecorateurAddition {
+  + ComplexDecorateurAddition(int, int, IPlan, float): 
+  + asComplex(int, int): NumberComplex
+}
+class CreateImage {
+  + CreateImage(int, int): 
+  + getPixel(int, int): Pixel
+  + saveAs(String): void
+  + setColor(int, int, Color): void
+   height: int
+   width: int
+}
+class Fractals {
+  - Fractals(): 
+  - parseCliArguments(String[]): void
+  + usage(): void
+  + buildFractal(): void
+  + main(String[]): void
+}
+class GenerationDesImages {
+  + GenerationDesImages(): 
+  - zoom: double
+  - width: int
+  - centreY: double
+  - centreX: double
+  - height: int
+   result: IFractalImage
+   zoom: double
+   width: int
+   nbiteration: int
+   paletteName: String
+   centreX: double
+   height: int
+   centreY: double
+   output: String
+   suiteComplexName: String
+}
+interface IBuilderImage << interface >> {
+   zoom: double
+   width: int
+   nbiteration: int
+   paletteName: String
+   centreX: double
+   height: int
+   centreY: double
+   output: String
+   suiteComplexName: String
+}
+interface IComplex << interface >> {
+  + subtract(IComplex): IComplex
+  + multiply(IComplex): IComplex
+  + abs(): double
+  + conjugate(): IComplex
+  + negate(): IComplex
+  + multiply(double): IComplex
+  + add(IComplex): IComplex
+  + divide(IComplex): IComplex
+   imaginaryPart: double
+   realPart: double
+}
+class IComplexTest {
+  + IComplexTest(): 
+  ~ testAdd(): void
+  ~ testDivide(): void
+  ~ testToString(): void
+  ~ testAbs(): void
+  ~ testSubtract(): void
+  ~ testMultiplyIComplex(): void
+  ~ testGetImaginaryPart(): void
+  ~ testEqualsObject(): void
+  - createComplex(double, double): IComplex
+  ~ testGetRealPart(): void
+  ~ testNegate(): void
+  ~ testConjugate(): void
+  ~ testMultiplyDouble(): void
+  ~ testHashCode(): void
+}
+interface ICouleur << interface >> {
+  + masque(Color): Color
+  + getCouleurStrategie(float, float): Color
+}
+interface IFigure << interface >> {
+   SVG: String
+}
+interface IForme << interface >> {
+  + move(int, int): void
+  + isInsideBounds(int, int): boolean
+   y: int
+   height: int
+   x: int
+   width: int
+}
+interface IFractalImage << interface >> {
+  + getPixel(int, int): Pixel
+  + setColor(int, int, Color): void
+  + saveAs(String): void
+   height: int
+   width: int
+}
+interface IMasque << interface >> {
+  + masque(Color): Color
+}
+interface IPlan << interface >> {
+  + asComplex(int, int): IComplex
+}
+interface IPoint << interface >> {
+  + distance(IPoint): double
+  + convertion(): IComplex
+   x: double
+   y: double
+}
+interface ISuiteChaotique << interface >> {
+  + getNext(IPoint): double
+}
+interface ISuiteComplexe << interface >> {
+  + getNext(IComplex): IComplex
+}
+class Iterateur {
+  + Iterateur(ISuiteComplexe, int): 
+  + hasNext(): boolean
+  + next(): IComplex
+   nbrIteration: int
+}
+class IterateurChaotique {
+  + IterateurChaotique(int, ISuiteChaotique): 
+  + hasNext(): boolean
+  + next(): Double
+}
+class Line {
+  + Line(int, int, Point, Color): 
+   SVG: String
+}
+class NumberComplex {
+  + NumberComplex(double, double): 
+  - realPart: double
+  - imaginaryPart: double
+  + abs(): double
+  + subtract(IComplex): IComplex
+  + multiply(double): IComplex
+  + toString(): String
+  + negate(): IComplex
+  + hashCode(): int
+  + conjugate(): IComplex
+  + multiply(IComplex): IComplex
+  + divide(IComplex): IComplex
+  + add(IComplex): IComplex
+  + equals(Object): boolean
+   imaginaryPart: double
+   realPart: double
+}
+class PaletteDecorateur {
+  + PaletteDecorateur(ICouleur): 
+  + masque(Color): Color
+}
+class PaletteGrey {
+  + PaletteGrey(): 
+  + masque(Color): Color
+  + getCouleurStrategie(float, float): Color
+}
+class PaletteRouge {
+  + PaletteRouge(): 
+  + getCouleurStrategie(float, float): Color
+  + masque(Color): Color
+}
+class Pixel {
+  + Pixel(IFractalImage, int, int): 
+  - image: IFractalImage
+  - row: int
+  - column: int
+   row: int
+   color: Color
+   column: int
+   image: IFractalImage
+}
+class Plan {
+  + Plan(int, int): 
+  + determinePoint(IPoint): IPoint
+  + asComplex(int, int): NumberComplex
+  + determineComplex(NumberComplex): IComplex
+}
+class PlanDecorateurMultiplie {
+  + PlanDecorateurMultiplie(IPlan, double): 
+  + asComplex(int, int): NumberComplex
+}
+class Rectangle {
+  + Rectangle(int, int, int, int, Color): 
+  - height: int
+  - width: int
+   SVG: String
+   height: int
+   width: int
+}
+class Rotate {
+  + Rotate(IFigure, double): 
+   SVG: String
+}
+class SuiteChaotique {
+  + SuiteChaotique(int): 
+  + iterator(): Iterator<Double>
+}
+class SuiteCirculaire {
+  + SuiteCirculaire(int): 
+  + getNext(IPoint): double
+  + iterator(): Iterator<Double>
+}
+class SuiteComplexe1 {
+  + SuiteComplexe1(int): 
+  + iterator(): Iterator<IComplex>
+}
+class SuiteJulia {
+  + SuiteJulia(NumberComplex, int): 
+  + iterator(): Iterator<IComplex>
+  + getNext(IComplex): IComplex
+}
+class SuiteJuliaGeneralisee {
+  + SuiteJuliaGeneralisee(BinaryOperator<IComplex>, IComplex, IComplex, int): 
+  + iterator(): Iterator<IComplex>
+  + getNext(IComplex): IComplex
+}
+class SuiteMandelbrot {
+  + SuiteMandelbrot(NumberComplex, int): 
+  + getNext(IComplex): IComplex
+  + iterator(): Iterator<IComplex>
+}
+class SuiteMandelbrotGeneralisee {
+  + SuiteMandelbrotGeneralisee(BinaryOperator<IComplex>, IComplex, IComplex, int): 
+  + getNext(IComplex): IComplex
+}
+class Transformation {
+  # Transformation(IFigure): 
+   SVG: String
+}
+class Translate {
+  + Translate(IFigure, double, double): 
+   SVG: String
+}
+class Triangle {
+  + Triangle(IPoint[], Color): 
+   SVG: String
+}
+class TriangleTest {
+  + TriangleTest(): 
+  ~ testCreerTriangle(): void
+}
+class masqueB {
+  + masqueB(ICouleur): 
+  + masque(Color): Color
+  + getCouleurStrategie(float, float): Color
+}
+class masqueG {
+  + masqueG(ICouleur): 
+  + masque(Color): Color
+  + getCouleurStrategie(float, float): Color
+}
+class masqueR {
+  + masqueR(ICouleur): 
+  + getCouleurStrategie(float, float): Color
+  + masque(Color): Color
+}
+
+AdaptateurComplex           -[#008200,dashed]-^  IPoint                     
+AttracteurFeigenbaum        -[#008200,dashed]-^  ISuiteChaotique            
+AttracteurFeigenbaum        -[#000082,plain]-^  SuiteChaotique             
+BaseForme                   -[#008200,dashed]-^  IForme                     
+Circle                      -[#000082,plain]-^  BaseForme                  
+Circle                      -[#008200,dashed]-^  IFigure                    
+ComplexDecorateurAddition   -[#008200,dashed]-^  IPlan                      
+ComplexDecorateurAddition   -[#000082,plain]-^  Plan                       
+CreateImage                 -[#008200,dashed]-^  IFractalImage              
+GenerationDesImages         -[#008200,dashed]-^  IBuilderImage              
+Line                        -[#000082,plain]-^  BaseForme                  
+Line                        -[#008200,dashed]-^  IFigure                    
+NumberComplex               -[#008200,dashed]-^  IComplex                   
+PaletteDecorateur           -[#008200,dashed]-^  ICouleur                   
+PaletteGrey                 -[#008200,dashed]-^  ICouleur                   
+PaletteRouge                -[#008200,dashed]-^  ICouleur                   
+Plan                        -[#008200,dashed]-^  IPlan                      
+PlanDecorateurMultiplie     -[#008200,dashed]-^  IPlan                      
+Rectangle                   -[#000082,plain]-^  BaseForme                  
+Rectangle                   -[#008200,dashed]-^  IFigure                    
+Rotate                      -[#000082,plain]-^  Transformation             
+SuiteChaotique              -[#008200,dashed]-^  ISuiteChaotique            
+SuiteCirculaire             -[#008200,dashed]-^  ISuiteChaotique            
+SuiteCirculaire             -[#000082,plain]-^  SuiteChaotique             
+SuiteJulia                  -[#008200,dashed]-^  ISuiteComplexe             
+SuiteJuliaGeneralisee       -[#008200,dashed]-^  ISuiteComplexe             
+SuiteMandelbrot             -[#008200,dashed]-^  ISuiteComplexe             
+SuiteMandelbrotGeneralisee  -[#008200,dashed]-^  ISuiteComplexe             
+Translate                   -[#000082,plain]-^  Transformation             
+Triangle                    -[#008200,dashed]-^  IFigure                    
+masqueB                     -[#000082,plain]-^  PaletteDecorateur          
+masqueG                     -[#000082,plain]-^  PaletteDecorateur          
+masqueR                     -[#000082,plain]-^  PaletteDecorateur          
+@enduml
