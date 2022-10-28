@@ -2,8 +2,6 @@ package fr.univartois.butinfo.fractals.figures;
 
 import java.awt.*;
 
-import static java.awt.Color.red;
-
 public class Circle extends BaseForme implements IFigure  {
 
     private final int radius;
