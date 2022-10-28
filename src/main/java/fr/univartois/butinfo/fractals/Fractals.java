@@ -175,27 +175,27 @@ public final class Fractals {
 
     /**
      * Crée la fractale demandée dans la ligne de commande.
-     * @throws IOException 
+     * @throws IOException
      */
     public void buildFractal() throws IOException {
-    	GenerationDesImages builder = new GenerationDesImages();
-    	builder.setHeight(500);
-    	builder.setWidth(500);
-    	builder.setSuiteComplexName("Mandelbrot");
-    	builder.setCentreX(0);
-    	builder.setCentreY(0);
-    	builder.setZoom(0.005);
-    	builder.setOutput("Mandelbrot.png");
+        GenerationDesImages builder = new GenerationDesImages();
+        builder.setHeight(500);
+        builder.setWidth(500);
+        builder.setSuiteComplexName("Mandelbrot");
+        builder.setCentreX(0);
+        builder.setCentreY(0);
+        builder.setZoom(0.005);
+        builder.setOutput("Mandelbrot.png");
         builder.setNbiteration(200);
         builder.setPaletteName("grey");
         builder.getResult();
-    	}
+    }
 
     /**
      * Exécute l'application depuis la ligne de commande.
      *
      * @param args Les arguments de la ligne de commande.
-     * @throws IOException 
+     * @throws IOException
      */
     public static void main(String[] args) throws IOException {
         Fractals fractals = new Fractals();

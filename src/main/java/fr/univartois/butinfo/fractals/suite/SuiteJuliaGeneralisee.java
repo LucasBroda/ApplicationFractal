@@ -5,7 +5,7 @@ import fr.univartois.butinfo.fractals.complex.IComplex;
 import java.util.Iterator;
 import java.util.function.BinaryOperator;
 
-public class SuiteJuliaGeneralisee{
+public class SuiteJuliaGeneralisee implements ISuiteComplexe{
     BinaryOperator<IComplex> op;
     IComplex c;
     IComplex z;
@@ -20,16 +20,16 @@ public class SuiteJuliaGeneralisee{
         this.nbMaxIterations = nbMaxIterations;
     }
 
-    public IComplex suiteJuliaGeneralisee(){
-        return op.apply(z,c);
+    @Override
+    public IComplex getNext(IComplex precedent) {
+        if(precedent == null){
+            return op.apply(z,c);
+        }
+        return op.apply(precedent,c);
     }
 
     public Iterator<IComplex> iterator(){
         return new Iterateur((ISuiteComplexe) this,nbMaxIterations);
     }
-
-
-
-
 
 }

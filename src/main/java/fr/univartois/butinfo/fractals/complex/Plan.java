@@ -7,7 +7,7 @@ public class Plan implements IPlan{
 	private int width;
 	private int height;
 
-	private IPlan plan = new Plan(this.width,this.height);
+	private final IPlan plan = new Plan(this.width,this.height);
 	
 	public Plan(int width, int height) {
 		super();
@@ -38,7 +38,7 @@ public class Plan implements IPlan{
 			return null;
 		}
 		else {
-			return (IPoint) new NumberComplex(point.getX(), point.getY());
+			return new AdaptateurComplex(point.getX(), point.getY());
 		}
 	}
 

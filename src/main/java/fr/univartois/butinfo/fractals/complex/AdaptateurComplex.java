@@ -8,6 +8,9 @@ public class AdaptateurComplex implements IPoint{
         this.complex = complex;
     }
 
+    public AdaptateurComplex(double x, double y) {
+    }
+
     @Override
     public double getX() {
         return complex.getRealPart();
