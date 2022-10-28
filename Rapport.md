@@ -93,48 +93,111 @@ Clement Mahieux
 
 ## Suites chaotiques et diagrammes de bifurcation
 #### Question 15
+Ici, pour représenter un point du plan, on va utiliser le patron de conception Adaptateur, car on veut faire le lien entre deux classes, ici notre interface IPoint et la classe NumberComplex.
+
+On crée d'abord notre interface IPoint, on crée deux méthodes getX() et getY(), qui vont permettre de récupérer l'abscisse et l'ordonnée de notre point, une méthode distance() qui permet de calculer la distance entre deux points, et enfin, une méthode conversion nous permettant de convertir un point en un objet de type IComplex.
+
+Puis on crée notre adaptateur, d'abord, on crée un attribut de type NumberComplex, avec son constructeur associé. Puis on implémente les méthodes getX() et getY(), pour l'abscisse, on prendra la partie réelle du nombre complex, et pour l'ordonnée, sa partie imaginaire.
+Ensuite, on implémente notre méthode distance, en retournant la formule de la distance entre deux points.
 #### Question 16
+Pour convertir un point en objet de type IComplex, on a juste à créer un nouveau NumberComplex avec les coordonnées de notre point (son getX() et son gety()).
 
 ### Suites chaotiques
 
 #### Question 17
+Comme pour les suites complexes, nous allons créer une interface, ici ISuiteChaotique, avec pour seule méthode une méthode getNext(), qui prend en paramètre un point de type IPoint
+
+Ainsi, comme pour les suites complexes, on a quelque chose d'exploitable pour n'importe quelle suite chaotique.
 #### Question 18
+On crée tout d'abord une classe AttracteurFeigenbaum, qui implémante notre interface ISuiteChaotique, ensuite on adapte notre méthode getNext() avec la formule donnée pour calculer Feigenbaum.
 #### Question 19
+Pour la suite circulaire, on fait la même chose que pour Feigenbaum, sauf qu'on remplace dans le getNext() par la formule pour calculer les termes d'une suite circulaire.
 #### Question 20
+Ici, on doit refaire un itérateur, mais cette fois-ci, pour les suites chaotiques.
+Je n'ai pas eu de difficultés cette fois-ci car j'avais compris comment faire un itérateur grâce aux questions précédentes.
+
+
+Lucas Broda
 
 ### Diagramme de bifurcation
 
 #### Question 21
+On doit se rendre pour cette question dans notre classe Plan et rajouter deux méthodes, une pour les nombres complexes, une pour les points.
+Pour les deux méthodes, en prendra respectivement en paramètre, un NumberComplex, et un point de type IPoint, et on vérifiera avec un if, si le point ou le nombre complexe se trouver en dehors de l'image.
+Si c'est le cas, on retournera un message d'erreur, sinon on donnera les coordonnées du nombre complex ou du point.
+
+J'ai juste des difficultés à trouver comment utiliser les dimansions du plan/image pour vérifier que les points/nombres complexes ne se trouvaient pas en dehors de l'image/plan.
+
+Pour m'aider, j'ai regardé mon projet SpaceInvader, dans la classe Alien, pour récupérer les bordures de notre jeu.
 #### Question 22
 #### Question 23
+
+Lucas Broda
 
 ## Création d’images en Java
 
 #### Question 24
-pour pouvoir crée une image on va utiliser un Builder en effet je vais donc crée une interface qui contiendra tutes les fonction pour fabriquer un builder soit tout les seter des paramètres et la fonction getResult() qui permet de construir le tout
+Pour pouvoir créer une image, on va utiliser un Builder.
+En effet, je vais donc créer une interface qui contiendra toutes les fonctions pour fabriquer un builder, soit tous les setter des paramètres et la fonction getResult() qui permet de construire le tout.
 #### Question 25
-on va ici utiliser le code donné pour pouvoir crée des images en png qui afficheron les differents fractals donc
+On va ici utiliser le code donné pour pouvoir créer des images qui afficheront les différentes fractals.
 
 ## Génération des images
 
 #### Question 26
-pour pouvoir crée une image on va utiliser un Builder en effet je vais donc crée une interface qui contiendra tutes les fonction pour fabriquer un builder soit tout les seter des paramètres et la fonction getResult() qui permet de construir le tout
+Pour pouvoir créer une image, on va utiliser un Builder.
+En effet, je vais donc créer une interface qui contiendra toutes les fonctions pour fabriquer un builder soit tous les setter des paramètres et la fonction getResult() qui permet de construire le tout.
 #### Question 27
-1. on va crée un nouveau plan de la taille demandé soir avec height et witght(qu'on aura defini grace a leurs seteurs)
-2. on va crée des boucle qui feron un balayage de tout les point sur le plan et a chaque nouveaux points on va crée son complex lui corresondant et on va generer une suite (qu'on aura choisis grace au seter)ainci que l'iterateur de cette suite puis on va chercher a compter le nombre d'iteration que cette suite auras on va donc les compter grace a l'iterator de la suite avec un while
-3. Puis avec le resultat précedent on va définir la couleur qui lui correspond en prenant en compte le nombre d'iteration de la suite et le nnombre d'iteration max qu'on pouras avoir (lui aussi definis grace au seteur)
-4. on va donc utiliser ici le seteur de couleur d'un pixel et le la definisant comme la couleur générer juste au dessus
-5. on sauvegarde l'image grace a la fonction  saveAs() donnée précedament
+1. On va créer un nouveau plan de la taille demandé, soit avec height et width(qu'on aura défini grâce à leurs secteurs).
+2. On va créer des boucles qui feront un balayage de tous les points sur le plan et à chaque nouveau point, on va créer son complex lui correspondant, et on va générer une suite (qu'on aura choisi grâce au setter)ainsi que l'itérateur de cette suite puis on va chercher à compter le nombre d'iteration que cette suite aura, via un while.
+3. Puis avec le résultat précèdent, on va définir la couleur qui lui correspond, en prenant en compte le nombre d'itérations de la suite et le nombre d'itérations max qu'on pourra avoir (lui aussi définis grace au secteur).
+4. On va donc utiliser ici le secteur de couleur d'un pixel et le définissant comme la couleur générer juste au-dessus.
+5. On sauvegarde l'image grâce à la fonction saveAs() donnée précédemment.
 
 
 Clement Mahieux
 
+## Figures et transformations géométriques
+
+### Représentation des différentes figures
+
+#### Question 28
+
+#### Question 29
+
+#### Question 30
+
+## Construction de fractales à partir de figures géométriques
+
+#### Question 31
+
+## Quelques fractales à base de figures géométriques
+
+#### Question 32
+
+#### Question 33
+
+#### Question 34
+
+#### Question 35
+
+#### Question 36
+
+## Génération des fractales
+
+#### Question 37
+
 ## La classe principale
 
 #### Question 38
-ici nous devon modifier la class Fractas et ajouter un corp a la fonction buildFractal() dans cette fonction on va donc avoir notre Builder d'image (les image sont la représentation graphique de nos phractales) on va donc crée une instance de builder et on va lui donné a laide des seteurs(du builder) les paramètres que ous souhaiton c'est a dire la taille de l'image le fractal que nous voulon voir la couleur a utiliser...
+Ici, nous devons modifier la classe Fractal et ajouter un corp a la fonction buildFractal() .
+Dans cette fonction, on va donc avoir notre Builder d'image (les images sont la représentation graphique de nos fractals).
+
+On va donc créer une instance de builder et on va lui donner à l'aide des secteurs(du builder) les paramètres que nous souhaitons, c'est-à-dire la taille de l'image du fractal que nous voulons voir, ainsi que la couleur à utiliser.
 #### Question 39
-ici je suis alle dans le run configuration de Gradle pour pouvoir y ajouer une nouvelle configuration : run --args="-f Julia -w 100 -h 100 -n 100 -o image.png -p "grey" -s 1 -x 50 -y 50" celle si contier tout les paramètres pour le builder avec -la letre la conernat et suivis de son paramètre
+Ici, je suis allé dans la run configuration de Gradle pour pouvoir y ajouter une nouvelle configuration : run --args="-f Julia -w 100 -h 100 -n 100 -o image.png -p "grey" -s 1 -x 50 -y 50".
+
+Celle si contiet tous les paramètres pour le builder avec -la letre la concernant, suivis de son paramètre.
 
 Clement Mahieux
 
@@ -146,5 +209,5 @@ Clement Mahieux
 #### Question 43
 
 
-# Fin Dun Raport
-merci de votre lecture 
+# Fin Du Rapport
+Merci de votre lecture 
