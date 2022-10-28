@@ -1,21 +1,24 @@
-# Rapport de SAE 2022 sur les Factals
+# Rapport de SAE 2022 sur les Fractals
 ### Participants :
 1. Lucas Broda
 2. Lucas Guyot
 3. Clement Mahieux  
-Nous sommes tous les 3 dans la classe A en 2eme année.
+Nous sommes tous les 3 dans la classe A en 2ᵉ année.
 
 ## Implantation des opérations sur les nombres complexes
 #### Question 1
+J'ai créé une classe NumberComplex et j'ai generé puis redéfinis les methodes toString(),hashcode() et equals() pour qu'ils correspondent à la classe.
 #### Question 2
+J'ai ajouté une interface IComplex avec différentes méthodes que j'ai redéfinies dans la classe NumberComplex sur laquelle j'ai implementé l'interface.
 #### Question 3
+Pour continuer j'ai ajouté les méthodes abs() et conjugate() comme méthode grâce à l'implémentation et je les ais, elle aussi, redéfinis afin d'avoir tous les tests corrects et que ma classe soit fonctionnelle.
 Lucas Guyot
 ## Implantation des opérations sur le plan complexe
 #### Question 4
-J'ai créé une classe Plan qui prend en paramètre la hauteur et largeur du plan avec une fonction asComplex(row,column) qui nous a été donné.
+J'ai créé une classe Plan qui prend en paramètre la hauteur et largeur du plan avec une fonction asComplex(row, column) qui nous a été donné.
 #### Question 5
 Pour pouvoir réaliser une translation, j'ai dû adapter mon code pour y intégrer un patron de conception, j'ai donc opté pour un decorateur.
-En effet, ici on cherche juste à reproduire la fonction asComplex(row,column) pour venir y ajouter une constante (présente dans le constructaur) ainsi pour appliquer le patron, j'ai créé une interface IPlan qui a comme contenue juste asComplex et une classe qui implemente IPlan nommée PlanAddition avec asComplex modifiée pour y ajouter une constante.
+En effet, ici on cherche juste à reproduire la fonction asComplex(row, column) pour venir y ajouter une constante (présente dans le constructeur) ainsi pour appliquer le patron, j'ai créé une interface IPlan qui a comme contenue juste asComplex et une classe qui implemente IPlan nommée PlanAddition avec asComplex modifiée pour y ajouter une constante.
 #### Question 6
 Pour cette question, on reprend ce qu'il a été fait pour la question 5, j'ai donc créé la classe PlanMultiplication pour venir multiplier le complex souhaiter, tout en utilisant asComplex, le multiplicateur peut être initialisé dans le constructeur.  
 Clement Mahieux
@@ -48,17 +51,17 @@ Avant, pour pouvoir itérer une suite, nous devons juste créer une méthode Ite
 
 J'ai eu des difficultés pour comprendre comment marchait l'implémentation de l'itérateur, quoi faire, quelles méthodes créer, dans quelle classe les créer etc ...
 
-(Clement Mahieux) update de l'itérateur : j'ai créé un getter pour pouvoir avoir accès au nombre d'iteration via à une autre classe, de plus j'ai pû supprimer du constructeur le paramètre précèdent, car il causait certains problèmes lors de l'affichage des suites. Egalement lors de la création d'un nouvel itérateur, car on devait mettre le premier terme, mais cela n'était pas possible, j'ai donc modifié certaines fonctions, comme hasNext qui renvoie un boolean s'il y a un suivant.
+(Clement Mahieux) update de l'itérateur : j'ai créé un getter pour pouvoir avoir accès au nombre d'iteration via à une autre classe, de plus j'ai pû supprimer du constructeur le paramètre précèdent, car il causait certains problèmes lors de l'affichage des suites. Egalement lors de la création d'un nouvel itérateur, parce qu'on devait mettre le premier terme, mais cela n'était pas possible, j'ai donc modifié certaines fonctions, comme hasNext qui renvoie un boolean s'il y a un suivant.
 #### Question 9
-Ici, j'ai donc créé une classe SuiteJulia, où j'ai créé un attribut c, représentant la constante de la formule, une variable z, qui elle, va varier au fur et à mesure de la suite, et en fonction de la valeur précédente, puis un attribut permettant de représenter le nombre maximun d'itérations de la suite.
-On fait donc également un constructeur, et on implémente la fonction getNext() de notre interface pour parcourir notre suite avec la formule représentant cette suite.
-Puis on crée un itérateur pour notre suite.
+Ici, j'ai donc créé une classe SuiteJulia, où j'ai créé un attribut c, représentant la constante de la formule, une variable z, qui elle, va varier au fur et à mesure de la suite, et en fonction de la valeur précédente, puis un attribut permettant de représenter le nombre maximum d'itérations de la suite.
+On fait également un constructeur, et on implémente la fonction getNext() de notre interface pour parcourir notre suite avec la formule représentant cette suite.
+Ensuite on crée un itérateur pour notre suite.
 
 Je n'ai pas eu de difficulté pour cette question, j'ai juste oublié de mettre l'itérateur dans la classe.
 
 (Clement Mahieux) update de Julia : j'ai modifié julia pour qu'elle contienne un itérateur avec ses paramètres et j'ai dû modifier getNext() pour que la fonction fonctionne lorsqu'il y a un terme null.
 #### Question 10
-Comme pour la question précédente, on crée une classe représentant la suite de Mandelbrot, on reprend la même structure, sauf que ici nous n'avons pas de constante c, le reste est similaire, on adapte juste la méthode getNext() avec la formule correspondate.
+Comme pour la question précédente, on crée une classe représentant la suite de Mandelbrot, on reprend la même structure, sauf que ici nous n'avons pas de constante c, le reste est similaire, on adapte juste la méthode getNext() avec la formule correspondante.
 
 Comme la suite de Julia, j'avais oublié d'intégrer un itérateur dans ma classe 
 
@@ -66,7 +69,7 @@ Comme la suite de Julia, j'avais oublié d'intégrer un itérateur dans ma class
 #### Question 11
 Pour faire la suite de Julia de manière généralisée, je reprends la même structure que ma suite de Julia, et je l'adapte pour répondre à la question, pour permettre de représenter la suite de Julia avec n'importe quelle formule, j'utilise un BinaryOperator qui va me permettre de créer une expression lambda avec mes attributs z et c, et de pouvoir les manipuler comme je le souhaite, le changement de formule se fera lors de la déclaration de l'expression.
 
-On adapte également la méthode getNext() pour qu'elle comprenne le BinaryOperator créé, ici, à la place de la formule de la suite, on retournera juste la ligne op.apply(z,c), ce qui veut dire que le BinaryOperator va utiliser les attributs z et c.
+On adapte également la méthode getNext() pour qu'elle comprenne le BinaryOperator créé, ici, à la place de la formule de la suite, on retournera juste la ligne op.apply(z, c), ce qui veut dire que le BinaryOperator va utiliser les attributs z et c.
 
 On intègre toujours notre itérateur de la même manière.
 #### Question 12
@@ -78,7 +81,7 @@ Lucas Broda
 
 # Question 13
 Pour les différentes palettes de couleurs, j'ai choisi d'utiliser le patron de conception stratégie.
-En effet, on va utiliser différentes palettes qui auront le même squelette(même fonction) mais le contenue sera different, car on aura différentes couleurs.
+En effet, on va utiliser différentes palettes qui auront le même squelette(même fonction) mais le contenu sera different, car on aura différentes couleurs.
 
 J'ai donc créé une interface ICouleur qui regroupe toutes les fonctions présentent dans les différentes palettes de couleur, j'ai ensuite pû implementer les fonctions dans les classes en définissant les couleurs qu'il fallait, de plus on va définir directement dans les classes de palette les couleurs que prendront les itérations.
 
@@ -97,10 +100,10 @@ Ici, pour représenter un point du plan, on va utiliser le patron de conception 
 
 On crée d'abord notre interface IPoint, on crée deux méthodes getX() et getY(), qui vont permettre de récupérer l'abscisse et l'ordonnée de notre point, une méthode distance() qui permet de calculer la distance entre deux points, et enfin, une méthode conversion nous permettant de convertir un point en un objet de type IComplex.
 
-Puis on crée notre adaptateur, d'abord, on crée un attribut de type NumberComplex, avec son constructeur associé. Puis on implémente les méthodes getX() et getY(), pour l'abscisse, on prendra la partie réelle du nombre complex, et pour l'ordonnée, sa partie imaginaire.
+Puis on crée notre adaptateur, d'abord, on crée un attribut de type NumberComplex, avec son constructeur associé. Ensuite on implémente les méthodes getX() et getY(), pour l'abscisse, on prendra la partie réelle du nombre complex, et pour l'ordonnée, sa partie imaginaire.
 Ensuite, on implémente notre méthode distance, en retournant la formule de la distance entre deux points.
 #### Question 16
-Pour convertir un point en objet de type IComplex, on a juste à créer un nouveau NumberComplex avec les coordonnées de notre point (son getX() et son gety()).
+Pour convertir un point en objet de type IComplex, on a juste à créer un nouveau NumberComplex avec les coordonnées de notre point (son getX() et son getY()).
 
 ### Suites chaotiques
 
@@ -109,12 +112,12 @@ Comme pour les suites complexes, nous allons créer une interface, ici ISuiteCha
 
 Ainsi, comme pour les suites complexes, on a quelque chose d'exploitable pour n'importe quelle suite chaotique.
 #### Question 18
-On crée tout d'abord une classe AttracteurFeigenbaum, qui implémante notre interface ISuiteChaotique, ensuite on adapte notre méthode getNext() avec la formule donnée pour calculer Feigenbaum.
+On crée tout d'abord une classe AttracteurFeigenbaum, qui implémente notre interface ISuiteChaotique, ensuite on adapte notre méthode getNext() avec la formule donnée pour calculer Feigenbaum.
 #### Question 19
 Pour la suite circulaire, on fait la même chose que pour Feigenbaum, sauf qu'on remplace dans le getNext() par la formule pour calculer les termes d'une suite circulaire.
 #### Question 20
 Ici, on doit refaire un itérateur, mais cette fois-ci, pour les suites chaotiques.
-Je n'ai pas eu de difficultés cette fois-ci car j'avais compris comment faire un itérateur grâce aux questions précédentes.
+Je n'ai pas eu de difficultés cette fois-ci, car j'avais compris comment faire un itérateur grâce aux questions précédentes.
 
 
 Lucas Broda
@@ -126,7 +129,7 @@ On doit se rendre pour cette question dans notre classe Plan et rajouter deux m�
 Pour les deux méthodes, en prendra respectivement en paramètre, un NumberComplex, et un point de type IPoint, et on vérifiera avec un if, si le point ou le nombre complexe se trouver en dehors de l'image.
 Si c'est le cas, on retournera un message d'erreur, sinon on donnera les coordonnées du nombre complex ou du point.
 
-J'ai juste des difficultés à trouver comment utiliser les dimansions du plan/image pour vérifier que les points/nombres complexes ne se trouvaient pas en dehors de l'image/plan.
+J'ai juste des difficultés à trouver comment utiliser les dimensions du plan/image pour vérifier que les points/nombres complexes ne se trouvaient pas en dehors de l'image/plan.
 
 Pour m'aider, j'ai regardé mon projet SpaceInvader, dans la classe Alien, pour récupérer les bordures de notre jeu.
 #### Question 22
@@ -138,7 +141,7 @@ Lucas Broda
 
 #### Question 24
 Pour pouvoir créer une image, on va utiliser un Builder.
-En effet, je vais donc créer une interface qui contiendra toutes les fonctions pour fabriquer un builder, soit tous les setter des paramètres et la fonction getResult() qui permet de construire le tout.
+En effet, je vais donc créer une interface qui contiendra toutes les fonctions pour fabriquer un builder, soit tous les setters des paramètres et la fonction getResult() qui permet de construire le tout.
 #### Question 25
 On va ici utiliser le code donné pour pouvoir créer des images qui afficheront les différentes fractals.
 
@@ -146,7 +149,7 @@ On va ici utiliser le code donné pour pouvoir créer des images qui afficheront
 
 #### Question 26
 Pour pouvoir créer une image, on va utiliser un Builder.
-En effet, je vais donc créer une interface qui contiendra toutes les fonctions pour fabriquer un builder soit tous les setter des paramètres et la fonction getResult() qui permet de construire le tout.
+En effet, je vais donc créer une interface qui contiendra toutes les fonctions pour fabriquer un builder soit tous les setters des paramètres et la fonction getResult() qui permet de construire le tout.
 #### Question 27
 1. On va créer un nouveau plan de la taille demandé, soit avec height et width(qu'on aura défini grâce à leurs secteurs).
 2. On va créer des boucles qui feront un balayage de tous les points sur le plan et à chaque nouveau point, on va créer son complex lui correspondant, et on va générer une suite (qu'on aura choisi grâce au setter)ainsi que l'itérateur de cette suite puis on va chercher à compter le nombre d'iteration que cette suite aura, via un while.
@@ -162,10 +165,13 @@ Clement Mahieux
 ### Représentation des différentes figures
 
 #### Question 28
-
+J'ai créé les classes pour les différentes figures dont on aura besoin par la suite et ces classes implémentent toutes l'interface IFigure avec la méthode getSVG() que j'ai redéfini dans chaque classe.
 #### Question 29
-
+J'ai utilisé un Décorateur en tant que patron de conception afin de gérer plus facilement mes transformations de figures pour cela j'ai créé une classe abstraite Transformation qui sera extends par deux classes Rotate et Translate qui redéfinissent la méthode getSVG() afin qu'elle s'adapte aux changements.
 #### Question 30
+J'ai utilisé un Composite en tant que patron de conception pour pouvoir créer des fractales qui utilisent plusieurs figures géométriques. J'ai créé une interface IForme avec plusieurs méthodes qui seront redéfinis dans ma classe abstraite BaseForme puis je l'ai extends dans les classes de mes différentes figures.
+
+Lucas Guyot
 
 ## Construction de fractales à partir de figures géométriques
 
@@ -197,7 +203,7 @@ On va donc créer une instance de builder et on va lui donner à l'aide des sect
 #### Question 39
 Ici, je suis allé dans la run configuration de Gradle pour pouvoir y ajouter une nouvelle configuration : run --args="-f Julia -w 100 -h 100 -n 100 -o image.png -p "grey" -s 1 -x 50 -y 50".
 
-Celle si contiet tous les paramètres pour le builder avec -la letre la concernant, suivis de son paramètre.
+Celle si contient tous les paramètres pour le builder avec la lettre la concernant, suivis de son paramètre.
 
 Clement Mahieux
 
@@ -210,4 +216,4 @@ Clement Mahieux
 
 
 # Fin Du Rapport
-Merci de votre lecture 
+Merci pour votre lecture 

@@ -1,9 +1,6 @@
 package fr.univartois.butinfo.fractals.transfo;
 
-import fr.univartois.butinfo.fractals.complex.AdaptateurComplex;
 import fr.univartois.butinfo.fractals.figures.IFigure;
-
-import java.awt.*;
 
 public class Translate extends Transformation{
 

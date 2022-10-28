@@ -2,8 +2,6 @@ package fr.univartois.butinfo.fractals.figures;
 
 import java.awt.*;
 
-import static java.awt.Color.black;
-
 public class Rectangle extends BaseForme implements IFigure {
 
     private final int height;
