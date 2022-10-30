@@ -10,6 +10,11 @@ public class Triangle implements IFigure {
 
     private final IPoint[] points;
 
+    /**
+     *
+     * @param points
+     * @param color
+     */
     public Triangle(IPoint[] points, Color color) {
         this.points = new IPoint[3];
         this.points[0] = points[0];
@@ -18,11 +23,15 @@ public class Triangle implements IFigure {
         this.color = color;
     }
 
+    /**
+     *
+     * @return le SVG de la figure
+     */
     public String getSVG() {
         StringBuilder pointsSb = new StringBuilder();
         for (IPoint point: points) {
             pointsSb.append(point.getX()).append(" ").append(point.getY()).append(", ");
         }
-        return "<polygon points="+" "+ pointsSb.substring(0, pointsSb.length() - 2) + " "+ "color=" + color + "/>";
+        return "<triangle points="+" "+ pointsSb.substring(0, pointsSb.length() - 2) + " "+ "color=" + color + "/>";
     }
 }
